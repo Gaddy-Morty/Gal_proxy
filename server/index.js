@@ -1,14 +1,27 @@
-// Import the express framework for our node server
 const express = require('express');
-// Import the path module from node to create absolute file paths for express static
 const path = require('path');
-
-// Instantiate the express server
+const axios = require('axios');
 const app = express();
-// Set a constant for the port that our express server will listen on
-const PORT = 3000;
+const bodyParser = require('body-parser');
+const morgan = require('morgan');
+const PORT = 3004;
 
-// Serve static files. Any requests for specific files will be served if they exist in the provided folder
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(morgan('dev'));
+
 app.use(express.static(path.join(__dirname, '../client/dist')));
-// Start the server on the provided port
+
+app.get('/gallery/:id', (req, res) => {
+  const id = req.params.id;
+
+  axios.get(`http://localhost:3000/gallery/${id}`)
+    .then(({ data }) => {
+      res.json(data);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+});
+
 app.listen(PORT, () => console.log('Listening on port: ' + PORT));

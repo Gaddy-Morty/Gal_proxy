@@ -1,0 +1,12 @@
+[submodule "recommendations"]
+	path = recommendations
+	url = https://github.com/mrdingma/recommendations.git
+[submodule "calendar"]
+	path = calendar
+	url = https://github.com/mrdingma/calendar.git
+[submodule "imageCarousel"]
+	path = imageCarousel
+	url = https://github.com/mrdingma/imageCarousel.git
+[submodule "reviews"]
+	path = reviews
+	url = https://github.com/mrdingma/reviews.git
