@@ -1,0 +1,20 @@
+#reviews {
+  position: absolute;
+  top: 60%;
+  margin-left: auto !important;
+  width: 55% !important;
+  padding-right: 24px !important;
+  padding-left: 24px !important;
+}
+
+#calendar {
+  position: absolute;
+  left: 60%;
+  top: 47%;
+}
+
+#recs {
+  position: absolute;
+  top: 290vh;
+  left: -49px;
+}
