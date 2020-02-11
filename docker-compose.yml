@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  proxy:
+    build: imageCarousel_Proxy/
+    restart: always
+    depends_on:
+      - 'gallery'
+      - 'recs'
+    ports:
+      - '3004:3004'
+
+  gallery:
+    build: imageCarousel/
+    restart: always
+    depends_on:
+      - 'database'
+    ports:
+      - '3000:3000'
+
+  recs:
+    build: recommendations/
+    restart: always
+    depends_on:
+      - 'database'
+    ports:
+      - '3002:3002'
+  
+  database:
+    image: mongo
+    restart: always
+    ports:
+      - '27017:27017'
