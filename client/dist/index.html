@@ -12,23 +12,62 @@
     rel="stylesheet">
   <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/montreal" type="text/css" />
   <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
-  <link href="http://localhost:3001/style.css" rel="stylesheet">
+  <!-- <link href="/calendar/css" rel="stylesheet"> -->
   <link rel="stylesheet" href="style.css">
   <title>Draft2Bnb</title>
 </head>
 
 <body>
-  <!-- Provide the div with id app for the ReactDOM method to attach to -->
   <div id="gallery"></div>
   <div id="modal-root"></div>
-  <div id="reviews"></div>
   <div id="calendar"></div>
-  <div id="recs"></div>
-  <!-- Import the compiled bundle which contains our entire react app  -->
-  <script type="text/javascript" src="http://localhost:3000/bundle.js"></script>
-  <script type="text/javascript" src="http://localhost:3001/bundle.js"></script>
-  <script type="text/javascript" src="http://localhost:3002/bundle.js"></script>
-  <script type="text/javascript" src="http://localhost:3003/bundle.js"></script>
+  <div id="main">
+    <img src="https://s3-us-west-1.amazonaws.com/draftbnb.gallery/album1/1.png">
+    <img src="https://s3-us-west-1.amazonaws.com/draftbnb.gallery/album1/2.png">
+    <img src="https://s3-us-west-1.amazonaws.com/draftbnb.gallery/album1/3.png">
+    <img src="https://s3-us-west-1.amazonaws.com/draftbnb.gallery/album1/4.png">
+    <img src="https://s3-us-west-1.amazonaws.com/draftbnb.gallery/album1/5.png">
+    <div id="reviews"></div>
+    <img src="https://s3-us-west-1.amazonaws.com/draftbnb.gallery/album1/6.png" style="
+    margin-top: -20px;">
+    <img src="https://s3-us-west-1.amazonaws.com/draftbnb.gallery/album1/7.png">
+    <img src="https://s3-us-west-1.amazonaws.com/draftbnb.gallery/album1/8.png">
+    <img src="https://s3-us-west-1.amazonaws.com/draftbnb.gallery/album1/9.png">
+    <img src="https://s3-us-west-1.amazonaws.com/draftbnb.gallery/album1/10.png">
+    <div id="recs"></div>
+    <img src="https://s3-us-west-1.amazonaws.com/draftbnb.gallery/album1/11.png" style="
+    margin-top: 70px;">
+    <img src="https://s3-us-west-1.amazonaws.com/draftbnb.gallery/album1/12.png" style="
+    margin-top: 20px;">
+  </div>
+  <script type="text/javascript" src="/gallery"></script>
+  <script type="text/javascript" src="/recs"></script>
+  <script type="text/javascript" src="/reviews"></script>
+  <script type="text/javascript" src="/calendar"></script>
+  <script>
+    const calendar = document.getElementById('calendar');
+
+    document.addEventListener('scroll', function () {
+      let pos = window.pageYOffset;
+      console.log(pos)
+      if (pos <= 383) {
+        calendar.classList.remove("fixed");
+        // calendar.classList.add("absolute1");
+      }
+      if (pos > 383 && pos <= 4699) {
+        // calendar.classList.remove("absolute1");
+        calendar.classList.remove("absolute2");
+
+        calendar.classList.add("fixed");
+      }
+      if (pos > 4699) {
+        calendar.classList.remove("fixed");
+
+        calendar.classList.add("absolute2");
+      }
+    });
+
+  </script>
 </body>
 
 </html>
